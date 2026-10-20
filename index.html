@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080b19">
+<title>ODYSSEY — A Parallax Experience</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+:root{--ink:#f4f2ee;--muted:#a7abc0;--lime:#d9ff72;--violet:#a28cff;--night:#080b19}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:80px}body{margin:0;background:var(--night);color:var(--ink);font-family:Manrope,system-ui,sans-serif;overflow-x:hidden}::selection{background:var(--lime);color:#101321}.grain{position:fixed;inset:0;pointer-events:none;z-index:20;opacity:.08;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
+nav{position:fixed;z-index:30;top:0;left:0;width:100%;display:flex;align-items:center;justify-content:space-between;padding:22px 6vw;mix-blend-mode:normal;background:linear-gradient(180deg,rgba(8,11,25,.78),transparent);backdrop-filter:blur(4px)}.brand{font-size:15px;font-weight:800;letter-spacing:.18em}.brand span{color:var(--lime)}nav a{color:var(--ink);text-decoration:none;font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-left:28px;opacity:.8}nav a:hover{color:var(--lime);opacity:1}.menu-label{font:10px 'DM Mono',monospace;color:var(--muted)}
+.hero{height:110vh;min-height:720px;position:relative;overflow:hidden;display:grid;place-items:center;isolation:isolate;background:radial-gradient(ellipse at 50% 75%,#24214e 0%,#10142c 37%,#080b19 72%)}.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,var(--night) 100%);z-index:5;pointer-events:none}.stars,.stars:before,.stars:after{position:absolute;inset:-20%;content:"";background-image:radial-gradient(2px 2px at 20% 30%,#fff 50%,transparent 100%),radial-gradient(1px 1px at 70% 60%,#d9ff72 50%,transparent 100%),radial-gradient(1px 1px at 40% 80%,#fff 50%,transparent 100%),radial-gradient(2px 2px at 85% 22%,#a28cff 50%,transparent 100%),radial-gradient(1px 1px at 10% 70%,#fff 50%,transparent 100%);background-size:320px 280px;opacity:.6;animation:starDrift 80s linear infinite}.stars:before{transform:translate(130px,90px);opacity:.45}.stars:after{transform:translate(-70px,140px);opacity:.35}@keyframes starDrift{to{transform:translateY(150px)}}.orb-wrap{position:absolute;width:min(62vw,760px);aspect-ratio:1;left:50%;top:47%;transform:translate(-50%,-50%);will-change:transform}.planet{position:absolute;inset:10%;border-radius:50%;background:radial-gradient(circle at 32% 27%,#e8d9ff 0%,#9e8ce9 8%,#5d5ba8 22%,#252d68 45%,#10152d 70%);box-shadow:inset -35px -20px 70px #050714,0 0 90px #7162e766,0 0 200px #4d4cbb22;overflow:hidden}.planet:before{content:"";position:absolute;inset:-15%;border-radius:50%;background:repeating-linear-gradient(165deg,transparent 0 22px,#d8d4ff16 24px 28px,transparent 31px 46px);transform:rotate(-17deg);filter:blur(3px)}.planet:after{content:"";position:absolute;inset:0;border-radius:50%;background:linear-gradient(110deg,transparent 20%,#0b0e24aa 72%,#060916 100%)}.orbit{position:absolute;inset:0;border:1px solid #c9c4ff45;border-radius:50%;transform:rotate(-22deg) scaleY(.31)}.orbit.two{transform:rotate(42deg) scaleY(.52);border-color:#d9ff7230}.satellite{position:absolute;width:13px;height:13px;background:var(--lime);border-radius:50%;top:17%;left:12%;box-shadow:0 0 24px var(--lime)}.hero-copy{position:relative;z-index:8;text-align:center;margin-top:-2vh;width:100%;padding:0 20px;pointer-events:none}.eyebrow{font:11px 'DM Mono',monospace;letter-spacing:.24em;text-transform:uppercase;color:var(--lime);display:flex;align-items:center;justify-content:center;gap:12px}.eyebrow:before,.eyebrow:after{content:"";width:26px;height:1px;background:currentColor;opacity:.65}.hero h1{font-size:clamp(4.2rem,13.8vw,12rem);line-height:.78;letter-spacing:-.095em;margin:30px 0 26px;font-weight:800;text-transform:uppercase}.hero h1 span{display:block;color:transparent;-webkit-text-stroke:1px #e9e7ff;letter-spacing:-.075em}.hero-copy p{font-size:14px;line-height:1.8;color:#c0c2d5;max-width:420px;margin:0 auto}.scroll-cue{position:absolute;z-index:9;bottom:48px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:14px;color:#c5c7d8;font:10px 'DM Mono',monospace;letter-spacing:.18em;text-transform:uppercase}.scroll-cue i{display:block;width:1px;height:38px;background:linear-gradient(var(--lime),transparent);animation:pulse 1.5s ease-in-out infinite}@keyframes pulse{50%{transform:scaleY(.65);opacity:.45}}
+.section{position:relative;padding:150px 8vw;overflow:hidden}.section-tag{font:10px 'DM Mono',monospace;letter-spacing:.18em;color:var(--lime);text-transform:uppercase}.section h2{font-size:clamp(3rem,7vw,7rem);line-height:.92;letter-spacing:-.075em;margin:22px 0 26px;max-width:900px}.section p{color:var(--muted);font-size:15px;line-height:1.9;max-width:480px}.intro{min-height:700px;display:flex;align-items:center;background:var(--night)}.intro-content{position:relative;z-index:2;width:55%}.intro h2 em{font-style:normal;color:var(--violet)}.moon{position:absolute;right:7%;top:16%;width:min(38vw,470px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 34% 28%,#f3e7ff,#aaa4d9 15%,#565c91 40%,#1c2348 69%,#090d20 73%);box-shadow:0 0 100px #9a8aff20;will-change:transform}.moon:after{content:"";position:absolute;inset:-8%;border:1px solid #d9ff7238;border-radius:50%;transform:scaleY(.22) rotate(-20deg)}.tiny-label{position:absolute;right:12%;bottom:17%;font:10px 'DM Mono',monospace;color:#b8b8d4;letter-spacing:.12em}
+.landscape{height:110vh;min-height:760px;padding:0;display:flex;align-items:flex-end;background:linear-gradient(180deg,#0a0d20,#172b47 56%,#d28a85 100%);isolation:isolate}.landscape .sky-glow{position:absolute;width:60vw;height:60vw;max-width:760px;max-height:760px;border-radius:50%;background:radial-gradient(circle,#ffdcab 0%,#f0a8a3 22%,#c77a8d44 48%,transparent 70%);left:50%;top:7%;transform:translateX(-50%);filter:blur(2px)}.landscape .sun{position:absolute;width:clamp(100px,19vw,250px);aspect-ratio:1;border-radius:50%;left:50%;top:22%;transform:translateX(-50%);background:linear-gradient(145deg,#ffe4b6,#f3a7a5 75%);box-shadow:0 0 80px #ffbba555}.ridge{position:absolute;bottom:0;left:-5%;width:110%;height:62%;background:#11172e;clip-path:polygon(0 54%,13% 35%,22% 53%,36% 15%,48% 45%,60% 22%,71% 51%,85% 25%,100% 45%,100% 100%,0 100%);transform:translateY(var(--shift,0))}.ridge.back{height:47%;background:#273252;clip-path:polygon(0 49%,18% 22%,31% 45%,46% 14%,59% 48%,73% 25%,88% 41%,100% 18%,100% 100%,0 100%)}.ridge.front{height:28%;background:#090d1c;clip-path:polygon(0 34%,15% 58%,28% 30%,41% 53%,57% 22%,72% 48%,88% 20%,100% 41%,100% 100%,0 100%)}.landscape-copy{position:relative;z-index:5;padding:0 8vw 10vh;max-width:900px}.landscape-copy h2{font-size:clamp(3.6rem,9vw,9rem);line-height:.82;letter-spacing:-.09em;margin:18px 0}.landscape-copy p{color:#e1d5dd;max-width:380px}
+.cards-section{background:#0b0e1d;padding-top:130px;padding-bottom:150px}.cards-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:60px}.cards-heading h2{margin-bottom:0}.cards-heading p{max-width:250px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{min-height:400px;position:relative;border:1px solid #ffffff17;border-radius:5px;padding:28px;overflow:hidden;background:linear-gradient(145deg,#151b35,#0c1022 70%);transition:transform .35s,border-color .35s;transform-style:preserve-3d}.card:hover{border-color:#d9ff7270;transform:translateY(-8px)}.card-no{font:10px 'DM Mono',monospace;color:var(--lime);letter-spacing:.15em}.card h3{font-size:28px;letter-spacing:-.05em;margin:25px 0 10px}.card p{font-size:13px;line-height:1.8}.card-art{position:absolute;bottom:12%;left:50%;transform:translateX(-50%);width:180px;aspect-ratio:1;border-radius:50%;transition:transform .7s}.card:hover .card-art{transform:translateX(-50%) rotate(18deg) scale(1.08)}.art-one{background:radial-gradient(circle at 30% 25%,#d9ff72,#7b9c64 18%,#263b4a 45%,#0d1329 70%);box-shadow:0 0 50px #d9ff7218}.art-two{background:radial-gradient(circle at 30% 28%,#f6d2ff,#a28cff 17%,#4b438e 44%,#11152e 70%);box-shadow:0 0 50px #a28cff22}.art-three{background:repeating-linear-gradient(135deg,#242b4a 0 5px,#394266 6px 7px,#151a31 8px 15px);box-shadow:inset -20px -15px 35px #050713,0 0 55px #6078cf22}.art-three:after{content:"";position:absolute;inset:22%;border:1px solid #d9ff72;border-radius:50%;transform:rotateX(65deg) rotate(25deg)}
+.quote{min-height:640px;display:grid;place-items:center;text-align:center;background:radial-gradient(ellipse at center,#28244e 0%,#111329 42%,#080b19 76%);padding:130px 8vw}.quote blockquote{font-size:clamp(2.4rem,6vw,6rem);font-weight:700;letter-spacing:-.07em;line-height:1.03;max-width:1000px;margin:25px auto}.quote blockquote span{color:var(--lime)}.quote small{font:10px 'DM Mono',monospace;letter-spacing:.18em;color:var(--muted);text-transform:uppercase}
+footer{padding:35px 8vw;display:flex;align-items:center;justify-content:space-between;border-top:1px solid #ffffff14;color:#7f849d;font:10px 'DM Mono',monospace;letter-spacing:.12em}footer a{color:var(--lime);text-decoration:none}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}.reveal.visible{opacity:1;transform:translateY(0)}.progress{position:fixed;z-index:40;top:0;left:0;height:2px;width:100%;transform-origin:left;transform:scaleX(0);background:var(--lime)}.back-top{position:fixed;right:24px;bottom:24px;z-index:25;width:42px;height:42px;border:1px solid #ffffff30;border-radius:50%;display:grid;place-items:center;color:var(--ink);text-decoration:none;background:#0b0e1dcc;backdrop-filter:blur(8px);transition:background .2s,color .2s}.back-top:hover{background:var(--lime);color:#101321}
+@media(max-width:760px){nav{padding:19px 6vw}nav .links{display:none}.hero{min-height:650px;height:100svh}.orb-wrap{width:100vw;top:43%}.hero h1{font-size:clamp(4.5rem,19vw,8rem)}.hero-copy p{font-size:13px}.section{padding:100px 7vw}.intro{min-height:780px;align-items:flex-start;padding-top:105px}.intro-content{width:100%}.moon{width:65vw;right:-4%;top:auto;bottom:7%;opacity:.8}.tiny-label{bottom:7%;right:5%}.landscape{height:100svh;min-height:680px}.landscape .sky-glow{width:100vw;height:100vw;top:8%}.landscape-copy{padding:0 7vw 12vh}.cards-heading{display:block}.cards-heading p{margin-top:20px}.cards{grid-template-columns:1fr}.card{min-height:360px}.card-art{width:155px;bottom:8%}.quote{min-height:560px;padding:100px 7vw}footer{padding:28px 7vw;gap:20px;flex-wrap:wrap}.menu-label{display:none}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div><div class="grain"></div>
+<nav><a class="brand" href="#top">O<span>•</span>DYSSEY</a><div class="links"><a href="#origin">Origin</a><a href="#horizon">Horizon</a><a href="#discoveries">Discoveries</a></div><div class="menu-label">SCROLL TO EXPLORE ↘</div></nav>
+<main id="top">
+<section class="hero" aria-label="A journey through space">
+ <div class="stars" data-speed=".12"></div>
+ <div class="orb-wrap" id="orb" data-speed=".28"><div class="orbit"></div><div class="orbit two"></div><div class="planet"></div><div class="satellite"></div></div>
+ <div class="hero-copy" data-speed="-.12"><div class="eyebrow">A JOURNEY BEYOND</div><h1>Find<br><span>Elsewhere</span></h1><p>Somewhere between the known and the impossible, a new world is waiting.</p></div>
+ <div class="scroll-cue"><i></i> KEEP WANDERING</div>
+</section>
+<section class="section intro" id="origin">
+ <div class="intro-content reveal"><div class="section-tag">01 / THE ORIGIN</div><h2>Not all who<br>wander are<br><em>lost.</em></h2><p>Leave the familiar behind. Drift through strange skies, follow impossible light, and remember what it feels like to be curious about everything.</p></div>
+ <div class="moon" data-speed="-.16"></div><div class="tiny-label">LUNAR ARCHIVE / 07</div>
+</section>
+<section class="landscape" id="horizon">
+ <div class="sky-glow" data-speed=".08"></div><div class="sun" data-speed=".16"></div>
+ <div class="ridge back" data-speed="-.12"></div><div class="ridge" data-speed="-.23"></div><div class="ridge front" data-speed="-.34"></div>
+ <div class="landscape-copy reveal"><div class="section-tag">02 / THE HORIZON</div><h2>Meet the<br>unknown.</h2><p>Worlds don't have to be real to make you feel something. Take a breath. You're exactly where you need to be.</p></div>
+</section>
+<section class="section cards-section" id="discoveries">
+ <div class="cards-heading reveal"><div><div class="section-tag">03 / FIELD NOTES</div><h2>Little wonders.<br>Infinite worlds.</h2></div><p>Three tiny reminders that the universe is full of beautiful surprises.</p></div>
+ <div class="cards">
+  <article class="card reveal"><div class="card-no">DISCOVERY 001</div><h3>New beginnings</h3><p>Every ending is a doorway wearing a disguise.</p><div class="card-art art-one"></div></article>
+  <article class="card reveal"><div class="card-no">DISCOVERY 002</div><h3>Soft gravity</h3><p>Some things pull you closer without making a sound.</p><div class="card-art art-two"></div></article>
+  <article class="card reveal"><div class="card-no">DISCOVERY 003</div><h3>Other forms</h3><p>Not everything extraordinary needs a name.</p><div class="card-art art-three"></div></article>
+ </div>
+</section>
+<section class="quote">
+ <div class="reveal"><div class="section-tag">04 / THE WAY BACK</div><blockquote>“The universe is not outside of you. Look inside yourself; <span>everything that you want, you already are.</span>”</blockquote><small>— RUMI, REIMAGINED</small></div>
+</section>
+</main>
+<footer><span>ODYSSEY © 2026</span><span>MADE FOR THE CURIOUS</span><a href="#top">BACK TO THE STARS ↑</a></footer>
+<a class="back-top" href="#top" aria-label="Back to top">↑</a>
+<script>
+(() => {
+ const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const progress = document.getElementById('progress');
+ const parallax = [...document.querySelectorAll('[data-speed]')];
+ let ticking = false;
+ function update(){
+   const y = window.scrollY;
+   const max = document.documentElement.scrollHeight - window.innerHeight;
+   progress.style.transform = `scaleX(${max > 0 ? y/max : 0})`;
+   if(!reduce){
+     parallax.forEach(el=>{
+       const speed = Number(el.dataset.speed || 0);
+       const rect = el.getBoundingClientRect();
+       const center = rect.top + rect.height/2 - window.innerHeight/2;
+       const offset = -center * speed;
+       if(el.id === 'orb'){
+         const x = Math.sin(y*.0013)*12;
+         el.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${offset}px)) rotate(${y*.012}deg)`;
+       } else if(el.classList.contains('ridge')){
+         el.style.setProperty('--shift', `${offset}px`);
+       } else {
+         el.style.transform = `translate3d(0,${offset}px,0)`;
+       }
+     });
+   }
+   ticking = false;
+ }
+ window.addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(update);ticking=true}},{passive:true});
+ window.addEventListener('resize',update); update();
+ const observer = new IntersectionObserver(entries=>{
+   entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}});
+ },{threshold:.12});
+ document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+ // Gentle pointer tilt for the discovery cards.
+ document.querySelectorAll('.card').forEach(card=>{
+   card.addEventListener('pointermove',e=>{
+     if(reduce || e.pointerType!=='mouse') return;
+     const r=card.getBoundingClientRect(), x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5;
+     card.style.transform=`perspective(900px) rotateY(${x*4}deg) rotateX(${-y*4}deg) translateY(-5px)`;
+   });
+   card.addEventListener('pointerleave',()=>card.style.transform='');
+ });
+})();
+</script>
+</body>
+</html>

@@ -1,2 +1,13 @@
-# parallax-odyssey
-ODYSSEY is a futuristic parallax scrolling website featuring immersive space visuals, glowing planets, layered mountain landscapes, and smooth animations. Built with HTML, CSS, and JavaScript, it offers interactive cards, scroll-based effects, responsive layouts, and an engaging user experience across desktop and mobile devices.
+# ODYSSEY — Parallax Experience
+
+A responsive, single-page parallax scrolling experience built with HTML, CSS, and vanilla JavaScript.
+
+## Run locally
+Open `index.html` in a browser. No build step or dependencies required.
+
+## Features
+- Multi-layer parallax starfield, planet, moon, sun, and mountain silhouettes
+- Scroll progress indicator and reveal-on-scroll animations
+- Interactive hover tilt cards
+- Responsive mobile layout and reduced-motion accessibility support
+- No external JS libraries
